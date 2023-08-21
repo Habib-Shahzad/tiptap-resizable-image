@@ -2,7 +2,7 @@ import { mergeAttributes, Node, nodeInputRule } from "@tiptap/core";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import ResizableImageWrapper from "./wrapper";
 
-export interface ImageOptions {
+interface ImageOptions {
   inline: boolean;
   allowBase64: boolean;
   HTMLAttributes: Record<string, string>;
@@ -25,8 +25,7 @@ declare module "@tiptap/core" {
   }
 }
 
-export const inputRegex =
-  /(?:^|\s)(!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\))$/;
+const inputRegex = /(?:^|\s)(!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\))$/;
 
 export const ResizableImage = Node.create<ImageOptions>({
   name: "image",
