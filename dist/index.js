@@ -65,7 +65,10 @@ const ResizableImage = Node.create({
     },
     renderHTML({ HTMLAttributes }) {
         const { height, width } = HTMLAttributes;
-        const attributes = Object.assign(Object.assign({}, HTMLAttributes), { style: `height: ${height} !important; width: ${width} !important;` });
+        const attributes = {
+            ...HTMLAttributes,
+            style: `height: ${height} !important; width: ${width} !important;`,
+        };
         return ["img", mergeAttributes(this.options.HTMLAttributes, attributes)];
     },
     addCommands() {
@@ -96,4 +99,4 @@ const ResizableImage = Node.create({
 });
 
 export { ResizableImage as default };
-//# sourceMappingURL=tiptap-resize-image.js.map
+//# sourceMappingURL=index.js.map

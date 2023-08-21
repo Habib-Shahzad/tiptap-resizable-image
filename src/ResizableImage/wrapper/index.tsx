@@ -16,7 +16,11 @@ export default function ResizableImageWrapper(props: WrapperProps) {
           width: props.node.attrs.width,
           height: props.node.attrs.height,
         }}
-        onResize={(e, direction, ref) => {
+        onResize={(
+          e: MouseEvent | TouchEvent,
+          direction: any,
+          ref: HTMLElement
+        ) => {
           props.updateAttributes({
             width: ref.style.width,
             height: ref.style.height,

@@ -1,15 +1,45 @@
 {
    "compilerOptions": {
+      "target": "es2019",
+      "declaration": true,
+      "module": "esnext",
+      "strict": true,
       "jsx": "react",
+      "typeRoots": [
+         "node_modules/@types",
+      ],
+      "importHelpers": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "baseUrl": ".",
+      "rootDir": ".",
+      "allowJs": true,
+      "checkJs": false,
+      "paths": {
+         "@tiptap/*": [
+            "packages/*/dist",
+            "packages/*/src"
+         ]
+      },
       "lib": [
+         "esnext",
          "dom",
          "dom.iterable",
-         "esnext"
-      ],
-      "esModuleInterop": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "strict": true,
-      "target": "es6"
-   }
+         "scripthost"
+      ]
+   },
+   "include": [
+      "src"
+   ],
+   "exclude": [
+      "node_modules",
+      "build",
+      "dist",
+      "example",
+      "rollup.config.js"
+   ]
 }

@@ -5,13 +5,9 @@ var react = require('@tiptap/react');
 var React = require('react');
 var reResizable = require('re-resizable');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-
 function ResizableImageWrapper(props) {
-    return (React__default["default"].createElement(react.NodeViewWrapper, { className: "image-resizer" },
-        React__default["default"].createElement(reResizable.Resizable, { defaultSize: {
+    return (React.createElement(react.NodeViewWrapper, { className: "image-resizer" },
+        React.createElement(reResizable.Resizable, { defaultSize: {
                 width: props.node.attrs.width,
                 height: props.node.attrs.height,
             }, onResize: (e, direction, ref) => {
@@ -71,7 +67,10 @@ const ResizableImage = core.Node.create({
     },
     renderHTML({ HTMLAttributes }) {
         const { height, width } = HTMLAttributes;
-        const attributes = Object.assign(Object.assign({}, HTMLAttributes), { style: `height: ${height} !important; width: ${width} !important;` });
+        const attributes = {
+            ...HTMLAttributes,
+            style: `height: ${height} !important; width: ${width} !important;`,
+        };
         return ["img", core.mergeAttributes(this.options.HTMLAttributes, attributes)];
     },
     addCommands() {
@@ -102,4 +101,4 @@ const ResizableImage = core.Node.create({
 });
 
 module.exports = ResizableImage;
-//# sourceMappingURL=tiptap-resize-image.js.map
+//# sourceMappingURL=index.cjs.map
