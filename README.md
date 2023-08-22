@@ -1,7 +1,7 @@
-# Habib-Shahzad/resizable-image-tiptap
+# Habib-Shahzad/tiptap-resizable-image
 
-[![Version](https://img.shields.io/github/package-json/v/habib-shahzad/resizable-image-tiptap)](https://github.com/Habib-Shahzad/resizable-image-tiptap)
-[![License](https://img.shields.io/github/license/habib-shahzad/resizable-image-tiptap)](https://github.com/Habib-Shahzad/resizable-image-tiptap)
+[![Version](https://img.shields.io/github/package-json/v/habib-shahzad/tiptap-resizable-image)](https://github.com/Habib-Shahzad/tiptap-resizable-image)
+[![License](https://img.shields.io/github/license/habib-shahzad/tiptap-resizable-image)](https://github.com/Habib-Shahzad/tiptap-resizable-image)
 
 ## Introduction
 
