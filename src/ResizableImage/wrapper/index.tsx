@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NodeViewWrapper } from "@tiptap/react";
 import { Resizable } from "re-resizable";
 import { Node as ProsemirrorNode } from "prosemirror-model";
@@ -12,14 +12,38 @@ export default function ResizableImageWrapper(props: WrapperProps) {
   const defaultWidth = props.node.attrs.width;
   const defaultHeight = props.node.attrs.height;
 
-  function getLength(unit: string | undefined) {
-    if (!unit) return 0;
-    return parseInt(unit.split("px")[0]);
-  }
+  const [marginLeft, setPaddingLeft] = useState(0);
+
+  const handleLeftArrowClick = () => {
+    props.updateAttributes({
+      marginLeft,
+    });
+    setPaddingLeft(marginLeft - 10);
+  };
+
+  const handleRightArrowClick = () => {
+    props.updateAttributes({
+      marginLeft,
+    });
+    setPaddingLeft(marginLeft + 10);
+  };
 
   return (
     <NodeViewWrapper className="image-resizer">
+      <button className="arrow-button" onClick={handleLeftArrowClick}>
+        &#8592;
+      </button>
+      &nbsp;&nbsp;
+      <button className="arrow-button" onClick={handleRightArrowClick}>
+        &#8594;
+      </button>
+      <div
+        style={{
+          marginTop: "10px",
+        }}
+      />
       <Resizable
+        className="resizable-image"
         defaultSize={{
           width: defaultWidth ? defaultWidth : "300",
           height: defaultHeight ? defaultHeight : "300",
@@ -29,11 +53,9 @@ export default function ResizableImageWrapper(props: WrapperProps) {
           direction: Direction,
           ref: HTMLElement
         ) => {
-          const updatedWidth = getLength(ref.style.width);
-          const updatedHeight = getLength(ref.style.height);
           props.updateAttributes({
-            width: `${updatedWidth}px`,
-            height: `${updatedHeight}px`,
+            width: ref.style.width,
+            height: ref.style.height,
           });
         }}
         maxWidth={"100%"}
@@ -41,6 +63,7 @@ export default function ResizableImageWrapper(props: WrapperProps) {
           backgroundImage: `url(${props.node.attrs.src})`,
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
+          marginLeft: `${marginLeft}px`,
         }}
         lockAspectRatio={false}
       ></Resizable>

@@ -65,6 +65,9 @@ export const ResizableImage = Node.create<ImageOptions>({
       width: {
         default: null,
       },
+      marginLeft: {
+        default: null,
+      },
     };
   },
 
@@ -77,10 +80,12 @@ export const ResizableImage = Node.create<ImageOptions>({
   },
 
   renderHTML({ HTMLAttributes }) {
-    const { height, width } = HTMLAttributes;
+    const { height, width, marginLeft } = HTMLAttributes;
+
+    console.log(HTMLAttributes);
     const attributes = {
       ...HTMLAttributes,
-      style: `height: ${height} !important; width: ${width} !important;`,
+      style: `height: ${height} !important; width: ${width} !important; margin-left: ${marginLeft}px !important;`,
     };
     return ["img", mergeAttributes(this.options.HTMLAttributes, attributes)];
   },
@@ -89,12 +94,12 @@ export const ResizableImage = Node.create<ImageOptions>({
     return {
       setImage:
         (options) =>
-          ({ commands }) => {
-            return commands.insertContent({
-              type: this.name,
-              attrs: options,
-            });
-          },
+        ({ commands }) => {
+          return commands.insertContent({
+            type: this.name,
+            attrs: options,
+          });
+        },
     };
   },
 
