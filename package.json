@@ -1,7 +1,7 @@
 {
   "name": "tiptap-resizable-image",
   "description": "image extension for tiptap",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "keywords": [
     "tiptap",
     "tiptap extension"
@@ -38,7 +38,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c",
+    "build": "npm run clean && npx rollup -c",
     "rollup": "rollup"
   },
   "dependencies": {
