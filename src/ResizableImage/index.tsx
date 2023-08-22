@@ -89,12 +89,12 @@ export const ResizableImage = Node.create<ImageOptions>({
     return {
       setImage:
         (options) =>
-        ({ commands }) => {
-          return commands.insertContent({
-            type: this.name,
-            attrs: options,
-          });
-        },
+          ({ commands }) => {
+            return commands.insertContent({
+              type: this.name,
+              attrs: options,
+            });
+          },
     };
   },
 

@@ -1,7 +1,7 @@
 {
-  "name": "tiptap-resize-image",
+  "name": "tiptap-resizable-image",
   "description": "image extension for tiptap",
-  "version": "1.8.0",
+  "version": "1.4.0",
   "keywords": [
     "tiptap",
     "tiptap extension"
@@ -34,8 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ueberdosis/tiptap",
-    "directory": "packages/extension-image"
+    "url": "https://github.com/Habib-Shahzad/tiptap-resizable-image"
   },
   "scripts": {
     "clean": "rm -rf dist",
