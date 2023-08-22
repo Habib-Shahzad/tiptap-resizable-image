@@ -12,7 +12,9 @@ export default function ResizableImageWrapper(props: WrapperProps) {
   const defaultWidth = props.node.attrs.width;
   const defaultHeight = props.node.attrs.height;
 
-  const [marginLeft, setPaddingLeft] = useState(0);
+  const [marginLeft, setPaddingLeft] = useState(
+    props.node.attrs?.marginLeft ?? 0
+  );
 
   const handleLeftArrowClick = () => {
     props.updateAttributes({
