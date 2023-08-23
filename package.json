@@ -1,7 +1,7 @@
 {
   "name": "tiptap-resizable-image",
   "description": "image extension for tiptap",
-  "version": "1.6.3",
+  "version": "1.6.5",
   "keywords": [
     "tiptap",
     "tiptap extension"

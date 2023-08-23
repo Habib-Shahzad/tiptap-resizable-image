@@ -10,7 +10,7 @@ interface ImageOptions {
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
-    customImage: {
+    image: {
       /**
        * Add an image
        */
@@ -20,6 +20,7 @@ declare module "@tiptap/core" {
         title?: string;
         height?: string;
         width?: string;
+        dataID?: string;
       }) => ReturnType;
     };
   }
@@ -68,6 +69,9 @@ export const ResizableImage = Node.create<ImageOptions>({
       marginLeft: {
         default: null,
       },
+      dataID: {
+        default: null,
+      },
     };
   },
 
@@ -81,8 +85,6 @@ export const ResizableImage = Node.create<ImageOptions>({
 
   renderHTML({ HTMLAttributes }) {
     const { height, width, marginLeft } = HTMLAttributes;
-
-    console.log(HTMLAttributes);
     const attributes = {
       ...HTMLAttributes,
       style: `height: ${height} !important; width: ${width} !important; margin-left: ${marginLeft}px !important;`,
